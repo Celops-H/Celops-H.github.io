@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-05-03T09:57:27.915Z</updated>
+  <updated>2023-05-05T13:04:12.406Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,29 +17,50 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>示例文章</title>
-    <link href="http://example.com/2023/05/03/hello-world/"/>
-    <id>http://example.com/2023/05/03/hello-world/</id>
-    <published>2023-05-02T16:00:00.000Z</published>
-    <updated>2023-05-03T09:57:27.915Z</updated>
+    <title></title>
+    <link href="http://example.com/2023/05/05/LCA/"/>
+    <id>http://example.com/2023/05/05/LCA/</id>
+    <published>2023-05-05T12:29:42.093Z</published>
+    <updated>2023-05-05T13:04:12.406Z</updated>
     
-    <content type="html"><![CDATA[<p>这是摘要的内容。</p><span id="more"></span><p>这是正文的内容。</p><p>公式测试：</p><p>$$<br>\sum_{i &#x3D; 1}^{n}a_i &#x3D; val<br>$$</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;这是摘要的内容。&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p><strong>概念：</strong> LCA (Least Common Ancestors)，即最近公共祖先，这种描述是基于树形结构的。对于 $u, v$ 两点它们的最近公共祖先就是从各自到树根的路径上的第一个共同点。</p>]]></content>
     
     
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;概念：&lt;/strong&gt; LCA (Least Common Ancestors)，即最近公共祖先，这种描述是基于树形结构的。对于 $u, v$ 两点它们的最近公共祖先就是从各自到树根的路径上的第一个共同点。&lt;/p&gt;
+</summary>
+      
     
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="编程" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
     
-    <category term="博客" scheme="http://example.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+  </entry>
+  
+  <entry>
+    <title>无向图三元环计数</title>
+    <link href="http://example.com/2023/05/05/%E6%97%A0%E5%90%91%E5%9B%BE%E4%B8%89%E5%85%83%E7%8E%AF%E8%AE%A1%E6%95%B0/"/>
+    <id>http://example.com/2023/05/05/%E6%97%A0%E5%90%91%E5%9B%BE%E4%B8%89%E5%85%83%E7%8E%AF%E8%AE%A1%E6%95%B0/</id>
+    <published>2023-05-04T16:00:00.000Z</published>
+    <updated>2023-05-05T13:01:17.570Z</updated>
     
-    <category term="Markdown" scheme="http://example.com/tags/Markdown/"/>
+    <content type="html"><![CDATA[<p>$\qquad$ 如题，该算法解决的问题就是计算一个无向图中有多少个三元环，采用的思想是根号分治。</p><p>$\qquad$ 考虑给所有边赋予一个方向，具体的，对于原图的每条边将度小得指向度大，度相等的编号小的指向度大的来建一个新的有向图。由此得到的图是有向无环的。</p><p>$\qquad$ 证明：从一个点出发开始走，途径的点的度一定是非递减的，如果路径上点度都相等，则其编号一定是非递减的，则其一定不会指向到达该点的路径上的点，所以新图一定是有向无环的。</p><p>$\qquad$ 如何计数？原图的三元环在新图中对应为满足：$u \rightarrow v, u \rightarrow w, v \rightarrow w$ 的三个点 $u, v, w$。考虑枚举所有边，这对应第一个条件，再枚举 $u$ 的所有出边，这对应第二个条件，是否满足第三个条件还需要再枚举 $v$ 的所有出边判断，在枚$u$ 的出边时给所有点打上一个时间戳，这样就可以在枚举 $v$  的时候 $O(1)$ 判断是否满足第三个条件。</p><p>复杂度：$m\sqrt m$ </p><p>$\qquad$ 设在原图中点的度数为 $deg$ ，当 $deg_u &lt;&#x3D; \sqrt m$ ，自然 $d_u &lt;&#x3D; \sqrt m$ 。当 $deg_u &gt; \sqrt m$ 时，由于我们建新图的方式，它在新图中的终点 $v$ 必定满足 $deg_v &gt;&#x3D; deg_u$ ，因为总边数为 $m$ ，则 $v$ 的数量不超过 $\frac{m}{\sqrt m}$ 个。</p><p><strong>Code:</strong></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; g;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> cas)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    g = vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; (n + <span class="number">10</span>);</span><br><span class="line">    set&lt;pii&gt; ens;</span><br><span class="line">    vector&lt;pii&gt; edg;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">d</span><span class="params">(n + <span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u, v;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (u &gt; v) <span class="built_in">swap</span>(u, v);</span><br><span class="line">        <span class="keyword">if</span> (u == v || ens.<span class="built_in">count</span>(&#123;u, v&#125;)) <span class="keyword">continue</span>;</span><br><span class="line">        edg.<span class="built_in">pb</span>(&#123;u, v&#125;);</span><br><span class="line">        ens.<span class="built_in">insert</span>(&#123;u, v&#125;);</span><br><span class="line">        d[u]++, d[v]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edg.<span class="built_in">size</span>(); i++) </span><br><span class="line">        <span class="keyword">if</span> (d[edg[i].fi] &lt;= d[edg[i].se]) g[edg[i].fi].<span class="built_in">pb</span>(edg[i].se);</span><br><span class="line">        <span class="keyword">else</span> g[edg[i].se].<span class="built_in">pb</span>(edg[i].fi);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vis</span><span class="params">(n + <span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edg.<span class="built_in">size</span>(); i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u = edg[i].fi, v = edg[i].se;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;w : g[u]) vis[w] = u;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;w : g[v]) </span><br><span class="line">            <span class="keyword">if</span> (vis[w] == u) res++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;$&#92;qquad$ 如题，该算法解决的问题就是计算一个无向图中有多少个三元环，采用的思想是根号分治。&lt;/p&gt;
+&lt;p&gt;$&#92;qquad$ 考虑给所有边赋予一个方向，具体的，对于原图的每条边将度小得指向度大，度相等的编号小的指向度大的来建一个新的有向图。由此得到的图是有向无环的。&lt;</summary>
+      
+    
+    
+    
+    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="图论" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
