@@ -7,5 +7,5 @@ http://example.com/
 http://example.com/tags/%E7%AE%97%E6%B3%95/
 http://example.com/tags/Linux/
 http://example.com/categories/%E7%AE%97%E6%B3%95/
-http://example.com/categories/Linux/
 http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/
+http://example.com/categories/Linux/

@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/Linux/</loc>
+    <loc>http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/</loc>
     <lastmod>2023-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/</loc>
+    <loc>http://example.com/categories/Linux/</loc>
     <lastmod>2023-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
