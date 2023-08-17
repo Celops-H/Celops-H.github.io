@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>极角序 | Celopsの一片净土</title><meta name="author" content="Celops"><meta name="copyright" content="Celops"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="极角序atan2函数常数小，但有精度误差。 123456bool cmp(point a,point b)&amp;#123;    if(atan2(a.y,a.x)!&#x3D;atan2(b.y,b.x))        return atan2(a.y,a.x)&lt;atan2(b.y,b.x);    else return a.x&lt;b.x;&amp;#125;  叉积法对整数点无精度损失，排序常数大。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极角序">
+<meta property="og:url" content="http://example.com/2023/08/17/%E6%9E%81%E8%A7%92%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Celopsの一片净土">
+<meta property="og:description" content="极角序atan2函数常数小，但有精度误差。 123456bool cmp(point a,point b)&amp;#123;    if(atan2(a.y,a.x)!&#x3D;atan2(b.y,b.x))        return atan2(a.y,a.x)&lt;atan2(b.y,b.x);    else return a.x&lt;b.x;&amp;#125;  叉积法对整数点无精度损失，排序常数大。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/32.jpg">
+<meta property="article:published_time" content="2023-08-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-17T04:46:24.303Z">
+<meta property="article:author" content="Celops">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/32.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="http://example.com/2023/08/17/%E6%9E%81%E8%A7%92%E5%BA%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":120,"position":"top","messagePrev":"本文上次更新于","messageNext":"天前 , 内容可能已过时 !"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '极角序',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-17 12:46:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Celopsの一片净土" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/32.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Celopsの一片净土"><span class="site-name">Celopsの一片净土</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">极角序</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-08-16T16:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-17T04:46:24.303Z" title="Updated 2023-08-17 12:46:24">2023-08-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">计算几何</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="极角序"><a href="#极角序" class="headerlink" title="极角序"></a>极角序</h1><h2 id="atan2函数"><a href="#atan2函数" class="headerlink" title="atan2函数"></a>atan2函数</h2><p>常数小，但有精度误差。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(point a,point b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">atan2</span>(a.y,a.x)!=<span class="built_in">atan2</span>(b.y,b.x))</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">atan2</span>(a.y,a.x)&lt;<span class="built_in">atan2</span>(b.y,b.x);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="叉积法"><a href="#叉积法" class="headerlink" title="叉积法"></a>叉积法</h2><p>对整数点无精度损失，排序常数大。</p>
+<p>叉积可以确定两个向量的左右关系，但向量夹角范围是 $[0, \pi]$ ，在一整个平面中无法完成排序，可以将平面分区，$x$ 轴上半部和下半部，原点和 $x$ 轴上左右。</p>
+<p>对于同一区内的采用叉积确定左右关系确定排序，不同区内的根据区的位置排序，比较函数如下。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">argcmp</span><span class="params">(pot &amp;a, pot &amp;b)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 确定区，原点为 1 ，x正半轴上为 2，轴上为 3， x 负半轴上为 4，轴下为 5</span></span><br><span class="line">    <span class="type">const</span> <span class="keyword">auto</span> quad = [] (<span class="type">const</span> pot &amp;a) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a.x == <span class="number">0</span> &amp;&amp; a.y == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (!a.y) <span class="keyword">return</span> a.x &gt; <span class="number">0</span> ? <span class="number">2</span> : <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">return</span> a.y &gt; <span class="number">0</span> ? <span class="number">3</span> : <span class="number">5</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">	</span><br><span class="line">    <span class="type">int</span> qa = <span class="built_in">quad</span>(a), qb = <span class="built_in">quad</span>(b);</span><br><span class="line">    <span class="keyword">return</span> (qa != qb) ? (qa &lt; qb) : ((a ^ b) &gt; <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果要找夹角最小的两个向量，假设 $a$ 在 $b$ 的逆时针方向，将它们旋转至 $b$ 与 $x$ 轴重合，此时 $a1$ 的坐标为 $(|a|cos \theta, |a|sin \theta)$ ，它们的夹角即为 $a1$ 与极轴的夹角，问题就变成了找与极轴夹角最小的向量，同理叉积即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">    pot a = &#123;ve[i] * ve[(i + <span class="number">1</span>) % n], <span class="built_in">abs</span>(ve[i] ^ ve[(i + <span class="number">1</span>) % n])&#125;;</span><br><span class="line">    pot b = &#123;ve[res] * ve[(res + <span class="number">1</span>) % n], <span class="built_in">abs</span>(ve[res] ^ ve[(res + <span class="number">1</span>) % n])&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((a ^ b) &gt; <span class="number">0</span>) res = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%81%E8%A7%92%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">极角序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#atan2%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">atan2函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%89%E7%A7%AF%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">叉积法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/08/17/%E4%BD%BF%E7%94%A8Git%E7%AE%A1%E7%90%86GitHub%E4%BB%93%E5%BA%93/" title="使用Git管理GitHub仓库"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/34.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Git管理GitHub仓库"/></a><div class="content"><a class="title" href="/2023/08/17/%E4%BD%BF%E7%94%A8Git%E7%AE%A1%E7%90%86GitHub%E4%BB%93%E5%BA%93/" title="使用Git管理GitHub仓库">使用Git管理GitHub仓库</a><time datetime="2023-08-16T16:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/17/%E6%9E%81%E8%A7%92%E5%BA%8F/" title="极角序"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/32.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="极角序"/></a><div class="content"><a class="title" href="/2023/08/17/%E6%9E%81%E8%A7%92%E5%BA%8F/" title="极角序">极角序</a><time datetime="2023-08-16T16:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/10/makefile/" title="linux系统编程(2)-makefile"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/26.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux系统编程(2)-makefile"/></a><div class="content"><a class="title" href="/2023/08/10/makefile/" title="linux系统编程(2)-makefile">linux系统编程(2)-makefile</a><time datetime="2023-08-09T16:00:00.000Z" title="Created 2023-08-10 00:00:00">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/09/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0(1)/" title="Linux系统编程(1)-基础命令"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/20.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux系统编程(1)-基础命令"/></a><div class="content"><a class="title" href="/2023/08/09/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0(1)/" title="Linux系统编程(1)-基础命令">Linux系统编程(1)-基础命令</a><time datetime="2023-08-08T16:00:00.000Z" title="Created 2023-08-09 00:00:00">2023-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/06/LCA/" title="LCA"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/19.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LCA"/></a><div class="content"><a class="title" href="/2023/05/06/LCA/" title="LCA">LCA</a><time datetime="2023-05-05T16:00:00.000Z" title="Created 2023-05-06 00:00:00">2023-05-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Celops</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script></div></body></html>

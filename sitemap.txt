@@ -1,5 +1,7 @@
-http://example.com/2023/08/10/makefile/
+http://example.com/2023/08/17/%E6%9E%81%E8%A7%92%E5%BA%8F/
+http://example.com/2023/08/17/%E4%BD%BF%E7%94%A8Git%E7%AE%A1%E7%90%86GitHub%E4%BB%93%E5%BA%93/
 http://example.com/2023/08/09/linux%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0(1)/
+http://example.com/2023/08/10/makefile/
 http://example.com/2023/05/05/%E6%97%A0%E5%90%91%E5%9B%BE%E4%B8%89%E5%85%83%E7%8E%AF%E8%AE%A1%E6%95%B0/
 http://example.com/2023/05/06/LCA/
 http://example.com/Categories/index.html
@@ -8,6 +10,9 @@ http://example.com/
 http://example.com/tags/Linux/
 http://example.com/tags/makefile/
 http://example.com/tags/%E7%AE%97%E6%B3%95/
+http://example.com/tags/%E6%95%99%E7%A8%8B/
 http://example.com/categories/Linux/
 http://example.com/categories/%E7%AE%97%E6%B3%95/
+http://example.com/categories/%E6%95%99%E7%A8%8B/
 http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%9B%BE%E8%AE%BA/
+http://example.com/categories/%E7%AE%97%E6%B3%95/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/
